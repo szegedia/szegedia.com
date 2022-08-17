@@ -1,7 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
 import Layout from '../layouts/Layout.astro';
-import profileImg from '../assets/images/profile.jpeg';
 import ScrollLink from '../components/ScrollLink.astro';
 import Badge from '../components/Badge.astro';
 ---
@@ -40,7 +39,7 @@ import Badge from '../components/Badge.astro';
 			</h2>
 
 			<figure class="max-w-5xl mx-auto text-lg text-zinc-500 tracking-tight flex flex-col md:flex-row">
-				<Image src={profileImg} format="jpeg" width={300} height={300} class="w-64 h-64 rounded-full md:mr-12 mx-auto" />
+				<Image src="/assets/profile.jpeg" format="jpeg" width={300} height={300} class="w-64 h-64 rounded-full md:mr-12 mx-auto" />
 				<blockquote class="space-y-8 mt-8 text-justify">
 					<p>I started my career in 2009 as a web designer. Although I really enjoyed to design websites, I felt that writing codes suits better for me. I started to self-educate myself to build websites based on my own designs with HTML and CSS. Soon, I started to work as a frontend developer with a keen eye for details.</p>
 					<p class="">I'm an open-minded person with constant desire to improve myself. I feel comfortable working as a member of a team and I enjoy sharing my knowledge with others. </p>
