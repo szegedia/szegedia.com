@@ -1,0 +1,18 @@
+---
+const { href, text } = Astro.props
+---
+
+<a href={href} class="group block rounded-md py-2 contact-button border border-zinc-400 hover:border-transparent">
+  <span
+    class="group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-violet-500"
+    >{text}
+  </span>
+</a>
+
+<style>
+  .contact-button {
+    background: linear-gradient(to right, #fafafa, #fafafa), linear-gradient(to bottom right, #ec4899, #8b5cf6);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+  }
+</style>

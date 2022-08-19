@@ -1,138 +1,245 @@
 ---
-import { Image } from '@astrojs/image/components';
-import Layout from '../layouts/Layout.astro';
-import ScrollLink from '../components/ScrollLink.astro';
-import Badge from '../components/Badge.astro';
+import { Image } from "@astrojs/image/components"
+import Layout from "../layouts/Layout.astro"
+import ScrollLink from "../components/ScrollLink.astro"
+import ExperienceItem from "../components/ExperienceItem.astro"
+import profileImg from "../assets/profile.jpeg"
+import BulletpointActive from "../components/BulletpointActive.astro"
+import Bulletpoint from "../components/Bulletpoint.astro"
+import ProjectCard from "../components/ProjectCard.astro"
+import ContactButton from "../components/ContactButton.astro"
+
+import restplatzLogo from "../assets/restplatz-logo.png"
+import rtlLogo from "../assets/rtl.png"
+import dmLogo from "../assets/dm.png"
 ---
 
 <Layout title="Attila Szegedi - Senior Frontend Developer">
-	<main id="main" class="bg-zinc-50">
-		<header id="header" class="transition-colors duration-500 flex items-center justify-between fixed z-10 top-0 w-full text-white dark:text-black dark:bg-zinc-50 px-8 pt-4">
-			<ScrollLink to="#main" className="font-bold text-xl">szegedia.com</ScrollLink>
-			<nav class="hidden md:block">
-				<ul class="flex gap-8 text-sm">
-					<li>
-						<ScrollLink to="#about">About</ScrollLink>
-					</li>
-					<li>
-						<ScrollLink to="#experiences">Experiences</ScrollLink>
-					</li>
-					<li>
-						<ScrollLink to="#projects">Projects</ScrollLink>
-					</li>
-					<li>
-						<ScrollLink to="#contact">Contact</ScrollLink>
-					</li>
-				</ul>
-			</nav>
-		</header>
+  <main id="main" class="bg-zinc-50">
+    <header
+      id="header"
+      class="transition-colors duration-500 flex items-center justify-between fixed z-50 top-0 w-full text-white dark:text-black px-8 py-2 dark:bg-zinc-50 dark:bg-opacity-70 backdrop-blur-xl"
+    >
+      <ScrollLink to="#main" className="font-bold text-xl">szegedia.com</ScrollLink>
+      <nav class="hidden md:block">
+        <ul class="flex gap-8 text-sm">
+          <li>
+            <ScrollLink to="#about">About</ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="#experiences">Experiences</ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="#projects">Projects</ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="#contact">Contact</ScrollLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-		<section id="hello" class="flex items-center justify-center flex-col h-screen bg-neutral-900">
-			<h1 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 via-violet-500 to-pink-500 animate-shine">Attila Szegedi</h1>
-			<h3 class="text-white tracking-tight font-bold">Senior Frontend Developer</h3>
-		</section>
+    <section id="hello" class="flex items-center justify-center flex-col h-screen bg-neutral-900">
+      <h1
+        class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 via-violet-500 to-pink-500 animate-shine"
+      >
+        Attila Szegedi
+      </h1>
+      <h3 class="text-white tracking-tight font-bold">Senior Frontend Developer</h3>
+    </section>
 
-		<section class="py-24 px-8 max-w-6xl mx-auto text-center" id="about">
-			<h2 class="text-slate-900 mb-8 tracking-tight whitespace-nowrap">
-				<span class="font-extrabold">I'm a </span>
-				<span class="typeWriter font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500" data-speed="1.5" data-text='["Developer", "Fast learner", "Coffeholic"]' />
-			</h2>
+    <section class="py-24 px-8 max-w-6xl mx-auto text-center" id="about">
+      <h2 class="text-slate-900 mb-8 tracking-tight whitespace-nowrap">
+        <span class="font-extrabold">I'm a</span>
+        <span
+          id="aboutTyping"
+          class="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500"></span>
+      </h2>
 
-			<figure class="max-w-5xl mx-auto text-lg text-zinc-500 tracking-tight flex flex-col md:flex-row">
-				<Image src="/assets/profile.jpeg" format="jpeg" width={300} height={300} class="w-64 h-64 rounded-full md:mr-12 mx-auto" />
-				<blockquote class="space-y-8 mt-8 text-justify">
-					<p>I started my career in 2009 as a web designer. Although I really enjoyed to design websites, I felt that writing codes suits better for me. I started to self-educate myself to build websites based on my own designs with HTML and CSS. Soon, I started to work as a frontend developer with a keen eye for details.</p>
-					<p class="">I'm an open-minded person with constant desire to improve myself. I feel comfortable working as a member of a team and I enjoy sharing my knowledge with others. </p>
-				</blockquote>
-			</figure>
-		</section>
+      <figure class="max-w-5xl mx-auto text-lg text-zinc-500 tracking-tight flex flex-col md:flex-row">
+        <Image src={profileImg} format="jpeg" width={300} height={300} class="w-64 h-64 rounded-full md:mr-12 mx-auto"
+        />
+        <blockquote class="space-y-8 mt-8 text-justify">
+          <p>
+            I started my career in 2009 as a web designer. Although I really enjoyed to design websites, I felt that
+            writing codes suits better for me. I started to self-educate myself to build websites based on my own
+            designs with HTML and CSS. Soon, I started to work as a frontend developer with a keen eye for details.
+          </p>
+          <p class="">
+            I'm an open-minded person with constant desire to improve myself. I feel comfortable working as a member of
+            a team and I enjoy sharing my knowledge with others.
+          </p>
+        </blockquote>
+      </figure>
+    </section>
 
-		<section class="py-24 px-8 space-y-24 max-w-6xl mx-auto" id="experiences">
-			<h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500">Experiences</h2>
-			<ul>
-				<li class="relative ml-4 pl-12 pb-12 before:absolute before:left-2 before:top-[1ch] before:bottom-0 before:block before:w-[2px] before:bg-zinc-400 after:absolute after:top-[1ch] after:left-[3px] after:rounded-full after:w-3 after:h-3 after:bg-purple-500 after:border after:border-purple-400">
-					<h3 class="relative font-bold text-2xl inline-block">Freelance</h3>
-					<h4 class="text-zinc-400">2019 - </h4>
-					<p class="mt-6 text-sm"><strong class="mr-2 text-zinc-600">Description:</strong> Various projects</p>
-					<p class="mt-4 text-sm flex flex-wrap items-baseline gap-2"><strong class="text-zinc-600">Techologies:</strong> {['React', 'Redux', 'Tailwind', 'Ant Design', 'SCSS'].map(tech => (<Badge>{tech}</Badge>))}</p>
+    <section class="py-24 px-8 space-y-24 max-w-6xl mx-auto" id="experiences">
+      <h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500">
+        Experiences
+      </h2>
+      <ul>
+        <ExperienceItem
+          name="Freelance"
+          duration="2019 -"
+          description="Various projects"
+          technologies={["React", "Redux", "Tailwind", "Ant Design", "SCSS"]}
+        >
+          <BulletpointActive />
+        </ExperienceItem>
+        <ExperienceItem
+          name="Virgo Systems"
+          duration="2017 - 2019"
+          description="maintain and develop cross-browser, mobile-friendly web applications and e-commerce websites, share knowledge via mentoring sessions"
+          technologies={["Vue", "Vuex", "Typescript", "Bootstrap", "Webpack", "Docker"]}
+        >
+          <Bulletpoint />
+        </ExperienceItem>
+        <ExperienceItem
+          name="USTREAM"
+          duration="2017 - 2017"
+          description="maintain and improve playback logic and Quality Of Service scaling, implement closed caption (CC) feature for live stream media and fine-tune network traffic"
+          technologies={["HTML5 Video & Audio API", "ES6", "Vue.js", "Redux", "Websocket", "Web VTT"]}
+        >
+          <Bulletpoint />
+        </ExperienceItem>
+        <ExperienceItem
+          name="Virgo Systems"
+          duration="2013 - 2017"
+          description="Various projects"
+          technologies={["jQuery", "React", "HTML5", "CSS3", "Sass", "Less"]}
+        >
+          <Bulletpoint />
+        </ExperienceItem>
+        <ExperienceItem
+          name="ORC Consulting"
+          duration="2011 - 2012"
+          description="design and implement custom ERP system UI with various modules like financial, inventory and customer relationship management"
+          technologies={["HTML", "CSS", "ExtJS 4", "PHP 5", "SOAP communication"]}
+        >
+          <Bulletpoint />
+        </ExperienceItem>
+      </ul>
+    </section>
 
-					<span class="flex h-4 w-4 absolute top-2 left-0">
-						<span class="animate-ping absolute h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-					</span>
-				</li>
-				<li class="relative ml-4 pl-12 pb-12 before:absolute before:left-2 before:inset-y-0 before:block before:w-[2px] before:bg-zinc-400 after:absolute after:top-[1ch] after:left-[3px] after:rounded-full after:w-3 after:h-3 after:bg-zinc-50 after:border after:border-zinc-400">
-					<h3 class="font-bold">Virgo Systems</h3>
-					<h4 class="text-zinc-400">2017 - 2019</h4>
-					<p class="mt-6 text-sm"><strong class="mr-2 text-zinc-600">Description:</strong> maintain and develop cross-browser, mobile-friendly web applications and e-commerce websites, share knowledge via mentoring sessions</p>
-					<p class="mt-4 text-sm flex flex-wrap items-baseline gap-2"><strong class="text-zinc-600">Techologies:</strong> {['Vue', 'Vuex', 'Typescript', 'Bootstrap', 'Webpack', 'Docker'].map(tech => (<Badge>{tech}</Badge>))}</p>
-				</li>
-				<li class="relative ml-4 pl-12 pb-12 before:absolute before:left-2 before:inset-y-0 before:block before:w-[2px] before:bg-zinc-400 after:absolute after:top-[1ch] after:left-[3px] after:rounded-full after:w-3 after:h-3 after:bg-zinc-50 after:border after:border-zinc-400">
-					<h3 class="font-bold">USTREAM</h3>
-					<h4 class="text-zinc-400">2017 - 2017</h4>
-					<p class="mt-6 text-sm"><strong class="mr-2 text-zinc-600">Description:</strong> maintain and improve playback logic and Quality Of Service scaling, implement closed caption (CC) feature for live stream media and fine-tune network traffic</p>
-					<p class="mt-4 text-sm flex flex-wrap items-baseline gap-2"><strong class="text-zinc-600">Techologies:</strong> {['HTML5 Video & Audio API', 'ES6', 'Vue.js', 'Redux', 'Websocket', 'Web VTT'].map(tech => (<Badge>{tech}</Badge>))}</p>
-					</li>
-				<li class="relative ml-4 pl-12 pb-12 before:absolute before:left-2 before:inset-y-0 before:block before:w-[2px] before:bg-zinc-400 after:absolute after:top-[1ch] after:left-[3px] after:rounded-full after:w-3 after:h-3 after:bg-zinc-50 after:border after:border-zinc-400">
-					<h3 class="font-bold">Virgo Systems</h3>
-					<h4 class="text-zinc-400">2013 - 2017</h4>
-					<p class="mt-6 text-sm"><strong class="mr-2 text-zinc-600">Description:</strong> maintain and develop cross-browser, mobile-friendly web applications and e-commerce websites, share knowledge via mentoring sessions</p>
-					<p class="mt-4 text-sm flex flex-wrap items-baseline gap-2"><strong class="text-zinc-600">Techologies:</strong> {['jQuery', 'React', 'HTML5', 'CSS3', 'Sass', 'Less'].map(tech => (<Badge>{tech}</Badge>))}</p>
-				</li>
-				<li class="relative ml-4 pl-12 pb-12 before:absolute before:left-2 before:top-0 before:h-[1ch] before:block before:w-[2px] before:bg-zinc-400 after:absolute after:top-[1ch] after:left-[3px] after:rounded-full after:w-3 after:h-3 after:bg-zinc-50 after:border after:border-zinc-400">
-					<h3 class="font-bold">ORC Consulting</h3>
-					<h4 class="text-zinc-400">2011 - 2012</h4>
-					<p class="mt-6 text-sm"><strong class="mr-2 text-zinc-600">Description:</strong> design and implement custom ERP system UI with various modules like financial, inventory and customer relationship management</p>
-					<p class="mt-4 text-sm flex flex-wrap items-baseline gap-2"><strong class="text-zinc-600">Techologies:</strong> {['HTML', 'CSS', 'ExtJS 4', 'PHP 5', 'SOAP communication'].map(tech => (<Badge>{tech}</Badge>))}</p>
-				</li>
-			</ul>
-		</section>
+    <section class="relative py-24 mx-auto" id="projects">
+      <div
+        class="absolute inset-0 bg-grid pointer-events-none"
+        style="mask-image:radial-gradient(circle, black, transparent);-webkit-mask-image:radial-gradient(circle, black, transparent);"
+      >
+      </div>
+      <h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500 text-center">
+        Projects
+      </h2>
 
-		<section class="py-24 px-8 space-y-24 max-w-7xl mx-auto" id="projects">
-			<h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500">Projects</h2>
-		</section>
+      <div class="relative overflow-x-auto mt-12 snap-x">
+        <div class="group transition-all py-12 flex gap-8">
+          <ProjectCard
+            name="DM Hungary"
+            img={dmLogo}
+            description="Description"
+            technologies={["Vue", "Vuex", "Bootstrap", "OpenApi 3", "Scss", "Webpack", "Storybook", "Docker", "Jest"]}
+          />
+          <ProjectCard
+            name="Restplatboerse.at"
+            img={restplatzLogo}
+            description="Description"
+            technologies={["Vue", "Vuex", "Typescript", "Lerna", "Scss", "Webpack", "Storybook"]}
+          />
+          <ProjectCard
+            name="RTL Klub"
+            img={rtlLogo}
+            description="Description"
+            technologies={["Vue", "Vuex", "Typescript", "OpenApi 3", "Scss", "Webpack", "Storybook"]}
+          />
+          <ProjectCard
+            name="DM Hungary"
+            img={dmLogo}
+            description="Description"
+            technologies={["Vue", "Vuex", "Bootstrap", "OpenApi 3", "Scss", "Webpack", "Storybook", "Docker", "Jest"]}
+          />
+        </div>
+      </div>
+    </section>
 
-		<section class="py-24 px-8 space-y-24 max-w-7xl mx-auto" id="contact">
-			<h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500">Contact</h2>
-		</section>
-	</main>
+    <section class="py-24 px-8 max-w-3xl mx-auto text-center" id="contact">
+      <h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500">Contact</h2>
+      <h3 class="mt-6">A straightforward and trustworthy way to have more connections and extend networking.</h3>
+
+      <ul class="flex flex-col space-y-8 max-w-sm mx-auto mt-16">
+        <li>
+          <ContactButton href="https://www.linkedin.com/in/attilaszegedi" text="Reach me on LinkedIn" />
+        </li>
+        <li>
+          <ContactButton href="https://github.com/szegedia" text="Reach me on Github" />
+        </li>
+        <li>
+          <ContactButton href="mailto:mail.szegedi+szegedia.com@gmail.com" text="Drop me a line" />
+        </li>
+      </ul>
+    </section>
+  </main>
 </Layout>
 
-<script is:inline src="/libs/typelighter.min.js"></script>
 <script>
-	const threshold = 0.05
-	const scrollLinks = document.querySelectorAll('[data-scroll-link]')
-	const root = document.querySelector(':root') as Element
-	const hello = document.querySelector('#hello') as Element
-	const main =  document.querySelector('#main') as Element
+  import TypeIt from "typeit"
 
-	main.addEventListener('click', (e: Event) => {
-		const target = (e.target as HTMLElement)
+  const threshold = 0.05
+  const scrollLinks = document.querySelectorAll("[data-scroll-link]")
+  const root = document.querySelector(":root") as Element
+  const hello = document.querySelector("#hello") as Element
+  const main = document.querySelector("#main") as Element
 
-		if (Array.from(scrollLinks).includes(target)) {
-			e.preventDefault()
-			
-			const to = (e.target as HTMLElement)?.getAttribute('href') as string
-			const offsetTop = (document.querySelector(to) as HTMLElement)?.offsetTop;
-			window.scrollTo({ top: offsetTop, left: 0, behavior: 'smooth' })
-		}
-	})
+  main.addEventListener("click", (e: Event) => {
+    const target = e.target as HTMLElement
 
-	// header scroll observer
-	new IntersectionObserver( 
-		([e]) => {
-			root.classList.toggle('dark', e.intersectionRatio < threshold)
-		}, { threshold }).observe(hello)
+    if (Array.from(scrollLinks).includes(target)) {
+      e.preventDefault()
+
+      const to = (e.target as HTMLElement)?.getAttribute("href") as string
+      const offsetTop = (document.querySelector(to) as HTMLElement)?.offsetTop
+      window.scrollTo({ top: offsetTop, left: 0, behavior: "smooth" })
+    }
+  })
+
+  // header scroll observer
+  new IntersectionObserver(
+    ([e]) => {
+      root.classList.toggle("dark", e.intersectionRatio < threshold)
+    },
+    { threshold }
+  ).observe(hello)
+
+  new TypeIt("#aboutTyping", {
+    speed: 100,
+    cursor: true,
+    loop: true,
+    loopDelay: 0
+  })
+    .type("Developer")
+    .pause(2000)
+    .delete()
+    .type("Fast learner")
+    .pause(2000)
+    .delete()
+    .type("Coffeeholic")
+    .pause(2000)
+    .delete()
+    .go()
 </script>
 
 <style>
-	.animate-shine {
-		background-size: 200% auto;
-		animation: shine 5s linear infinite;
-	}
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
 
-	@keyframes shine {
-		to {
-			background-position: 200% center;
-		}
-	}
+  .animate-shine {
+    background-size: 200% auto;
+    animation: shine 5s linear infinite;
+  }
+
+  .bg-grid {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
 </style>

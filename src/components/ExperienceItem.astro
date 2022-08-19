@@ -1,0 +1,19 @@
+---
+import Badge from "./Badge.astro"
+
+const { name, duration, description, technologies } = Astro.props
+---
+
+<li
+  class="relative ml-4 pl-12 pb-12 before:absolute before:-left-px before:top-0 first:before:top-[1.25ch] before:bottom-0 last:before:bottom-auto last:before:h-[1ch] before:block before:w-[2px] before:bg-zinc-400"
+>
+  <h3 class="relative font-bold text-2xl inline-block">{name}</h3>
+  <h4 class="text-zinc-400">{duration}</h4>
+  <p class="mt-6 text-sm"><strong class="mr-2 text-zinc-600">Description:</strong> {description}</p>
+  <p class="mt-4 text-sm flex flex-wrap items-baseline gap-2">
+    <strong class="text-zinc-600">Techologies:</strong>
+    {technologies.map((tech: string) => <Badge>{tech}</Badge>)}
+  </p>
+
+  <slot />
+</li>
