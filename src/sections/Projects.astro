@@ -1,0 +1,176 @@
+---
+import "swiper/css"
+import "swiper/css/bundle"
+import "swiper/css/pagination"
+import projects from "../projects.json"
+import Badge from "../components/Badge.astro"
+---
+
+<div
+  class="absolute inset-0 bg-grid pointer-events-none"
+  style="mask-image:radial-gradient(circle, black, transparent);-webkit-mask-image:radial-gradient(circle, black, transparent);"
+>
+</div>
+<h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500 text-center pt-4">
+  Projects
+</h2>
+
+<div class="relative flex mx-auto max-w-5xl py-8">
+  <div class="max-w-lg relative overflow-hidden top-24 shadow-2xl rounded-md">
+    <div class="swiper h-60">
+      <div class="swiper-wrapper">
+        {
+          projects.map((project, index) => (
+            <figure
+              class="swiper-slide relative bg-white px-6 py-2 selection:h-full"
+              data-hash={`slide-${index}`}
+              data-project={JSON.stringify(project, null, "\t")}
+            >
+              <div class="flex items-center gap-4">
+                <div class="flex h-12 w-12 items-center justify-center rounded-full">
+                  <img src={project.image} class="max-h-[50px] max-w-[50px]" />
+                </div>
+                <h4 class="text-xl font-bold">{project.name}</h4>
+              </div>
+              <blockquote class="mt-4">
+                <p>
+                  <strong class="text-zinc-600">Description:</strong> {project.description}
+                </p>
+                <p class="mt-4 flex flex-wrap items-baseline gap-2 text-sm">
+                  <strong class="text-zinc-600">Techologies:</strong>
+                  {project.technologies.map((tech: string) => (
+                    <Badge>{tech}</Badge>
+                  ))}
+                </p>
+              </blockquote>
+            </figure>
+          ))
+        }
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <div class="editor absolute right-0 w-full max-w-xl rounded-md bg-neutral-900 text-xs shadow-lg">
+    <div class="relative py-2 text-center">
+      <div class="absolute top-1/2 flex h-8 -translate-y-1/2 items-center space-x-1.5 px-3">
+        <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+        <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+        <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+      </div>
+      <h6 class="text-xs text-zinc-300">Projects — szegedia.com</h6>
+    </div>
+    <pre
+      class="col-span-5 flex border-l border-white/10 bg-white/5 pt-2">      <div id="lines" class="mr-4 w-10 text-right text-neutral-600" />
+    <code id="code" class="language-html overflow-auto" />
+    </pre>
+  </div>
+</div>
+
+<script>
+  import Prism from "prismjs"
+  import Swiper, { Pagination, Autoplay, EffectFade } from "swiper"
+  import "prismjs/components/prism-json"
+
+  let activeTimer: any
+  const lineCount = 20
+  const linesEl = document.querySelector("#lines") as HTMLElement
+  const codeEl = document.querySelector("#code") as HTMLElement
+
+  linesEl.textContent = new Array(lineCount)
+    .fill(null)
+    .map((_, line) => `${line + 1}`)
+    .join("\n")
+
+  function* animateText(token: HTMLElement) {
+    const text = token.textContent?.split("") || []
+    token.textContent = ""
+
+    for (let letter in text) {
+      token.textContent += text[letter]
+      yield text[letter]
+    }
+  }
+
+  function* insertToken(token: HTMLElement) {
+    const isRow = token.classList.contains("is-row")
+    codeEl.append(token)
+
+    if (!isRow) {
+      yield* animateText(token)
+    }
+
+    yield token
+  }
+
+  function* makeTextInsertGen(tokens: HTMLElement[]) {
+    for (let token of tokens) {
+      yield* insertToken(token)
+    }
+  }
+
+  const clear = () => {
+    codeEl.innerHTML = ""
+    clearTimeout(activeTimer)
+  }
+
+  const startAnimation = ({ activeIndex, slides }: Swiper) => {
+    const raw = slides[activeIndex].getAttribute("data-project")
+    const tokens = Prism.tokenize(raw, Prism.languages.json, "json").map((token: any) => {
+      const isRow = typeof token === "string"
+      const el = document.createElement("span")
+      el.textContent = isRow ? token : token.content
+      el.setAttribute("class", `${isRow ? "is-row" : "token " + token.type}`)
+
+      return el
+    })
+
+    const textInsertGen = makeTextInsertGen(tokens)
+    const run = () => {
+      const { done } = textInsertGen.next()
+      if (!done) {
+        activeTimer = setTimeout(run, 10)
+      }
+    }
+
+    clear()
+    run()
+  }
+
+  new Swiper(".swiper", {
+    modules: [Pagination, Autoplay, EffectFade],
+    speed: 500,
+    slidesPerView: 1,
+    spaceBetween: 100,
+    effect: "fade",
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true
+    },
+    on: {
+      afterInit: startAnimation,
+      slideChange: startAnimation
+    }
+  })
+</script>
+
+<style is:global>
+  :root {
+    --swiper-navigation-size: 20px;
+    --swiper-pagination-color: #f472b6;
+    --swiper-pagination-bullet-width: 10px;
+    --swiper-pagination-bullet-height: 10px;
+  }
+</style>
+
+<style>
+  .bg-grid {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+</style>

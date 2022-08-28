@@ -2,7 +2,11 @@
 const { href, text } = Astro.props
 ---
 
-<a href={href} class="group block rounded-md py-2 contact-button border border-zinc-400 hover:border-transparent">
+<a
+  href={href}
+  class="group block rounded-md py-2 contact-button border border-zinc-400 hover:border-transparent bg-white"
+  target="_blank"
+>
   <span
     class="group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-pink-500 group-hover:to-violet-500"
     >{text}
