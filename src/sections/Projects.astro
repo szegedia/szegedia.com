@@ -17,12 +17,12 @@ import Badge from "../components/Badge.astro"
 
 <div class="relative flex mx-auto max-w-5xl py-8">
   <div class="max-w-lg relative overflow-hidden top-24 shadow-2xl rounded-md">
-    <div class="swiper h-60">
+    <div class="swiper h-72">
       <div class="swiper-wrapper">
         {
           projects.map((project, index) => (
             <figure
-              class="swiper-slide relative bg-white px-6 py-2 selection:h-full"
+              class="swiper-slide relative bg-white p-6 selection:h-full"
               data-hash={`slide-${index}`}
               data-project={JSON.stringify(project, null, "\t")}
             >
@@ -30,13 +30,35 @@ import Badge from "../components/Badge.astro"
                 <div class="flex h-12 w-12 items-center justify-center rounded-full">
                   <img src={project.image} class="max-h-[50px] max-w-[50px]" />
                 </div>
-                <h4 class="text-xl font-bold">{project.name}</h4>
+                <div>
+                  {project?.website ? (
+                    <a href={project.website} target="_blank" class="flex gap-2">
+                      <h4 class="text-xl font-bold">{project.name}</h4>
+                      <svg width="16" height="16" viewBox="0 0 24 24">
+                        <path
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"
+                        />
+                      </svg>
+                    </a>
+                  ) : (
+                    <h4 class="text-xl font-bold">{project.name}</h4>
+                  )}
+                </div>
               </div>
-              <blockquote class="mt-4">
+
+              <blockquote class="mt-4 space-y-3 text-sm">
                 <p>
                   <strong class="text-zinc-600">Description:</strong> {project.description}
                 </p>
-                <p class="mt-4 flex flex-wrap items-baseline gap-2 text-sm">
+                <p>
+                  <strong class="text-zinc-600">Visibility:</strong> {project.visibility}
+                </p>
+                <p class="flex flex-wrap items-baseline gap-2">
                   <strong class="text-zinc-600">Techologies:</strong>
                   {project.technologies.map((tech: string) => (
                     <Badge>{tech}</Badge>

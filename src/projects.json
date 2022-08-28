@@ -2,6 +2,7 @@
   {
     "name": "MVM Tudásközpont",
     "image": "/images/mvm.svg",
+    "visibility": "internal",
     "description": "Enterprise knowledge sharing application with dynamic page layout and CMS functionality",
     "technologies": [
       "React",
@@ -18,48 +19,59 @@
   {
     "name": "Energy Neighborhood",
     "image": "/images/ek.svg",
+    "visibility": "internal",
     "description": "Energy neighborhood management sytem for councious energy-consuming communities",
     "technologies": ["React", "Redux (Rematch)", "Typescript", "Vite", "Ant Design", "Sass", "OpenApi 3"]
   },
   {
     "name": "EGIS LaunchEngine",
     "image": "/images/egis.svg",
+    "visibility": "internal",
     "description": "Multi-country product launch management application for pharmaceutical company",
     "technologies": ["React", "Redux (Rematch)", "Typescript", "CRA", "Sass", "OpenApi 3"]
   },
   {
     "name": "Restplatzboerse.at",
+    "website": "https://restplatzboerse.at",
     "image": "/images/restplatzboerse.svg",
+    "visibility": "public",
     "description": "Effective travel package deals for travellers",
     "technologies": ["Vue", "Vuex", "Typescript", "Jest", "Lerna", "Storybook"]
   },
   {
     "name": "DM Hungary",
     "image": "/images/dm.svg",
+    "visibility": "internal",
     "description": "Internal sales and operations planning application",
     "technologies": ["Vue", "Vuex", "Bootstrap", "OpenApi 3", "Webpack", "Docker", "Jest"]
   },
   {
-    "name": "Hungarian National Tax Office",
+    "name": "Online számla - Hungarian National Tax Office",
+    "website": "https://onlineszamla.nav.gov.hu",
     "image": "/images/nav.svg",
+    "visibility": "public",
     "description": "The first official online invoicing software for the official Hungarian National Tax Office",
     "technologies": ["Angular 4", "NgRx", "Typescript", "Material Design"]
   },
   {
     "name": "Telenor Hungary",
     "image": "/images/telenor.svg",
+    "visibility": "public",
     "description": "Telecommunicaion company redesigning landing and product sales website",
     "technologies": ["HTML5", "jQuery", "Bootstrap", "Sass", "PHP"]
   },
   {
     "name": "Extreme Digital",
     "image": "/images/edigital.svg",
+    "visibility": "public",
     "description": "Online webshop redesign and redesign with seo approach",
     "technologies": ["HTML5", "jQuery", "Bootstrap", "Handlebars", "Less", "PHP"]
   },
   {
     "name": "EÉR - Electronic Sales System",
+    "website": "https://eer.gov.hu",
     "image": "/images/eer.svg",
+    "visibility": "public",
     "description": "Official bankruptcy auction website for the public",
     "technologies": ["Nodejs", "KrakenJs", "DustJs", "jQuery", "Bootstrap", "HTML5", "Less"]
   }

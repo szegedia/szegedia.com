@@ -3,7 +3,9 @@ import Badge from "../components/Badge.astro"
 import experiences from "../experiences.json"
 ---
 
-<h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500">Experiences</h2>
+<h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500 text-center">
+  Experiences
+</h2>
 <ul>
   {
     experiences.map(({ name, duration, description, technologies }, index) => (
