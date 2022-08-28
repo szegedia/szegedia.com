@@ -1,17 +1,11 @@
 ---
-import { Image } from "@astrojs/image/components"
 import Layout from "../layouts/Layout.astro"
+import Hero from "../sections/Hero.astro"
+import AboutMe from "../sections/AboutMe.astro"
+import Experiences from "../sections/Experiences.astro"
+import Contact from "../sections/Contact.astro"
 import ScrollLink from "../components/ScrollLink.astro"
-import ExperienceItem from "../components/ExperienceItem.astro"
-import profileImg from "../assets/profile.jpeg"
-import BulletpointActive from "../components/BulletpointActive.astro"
-import Bulletpoint from "../components/Bulletpoint.astro"
-import ProjectCard from "../components/ProjectCard.astro"
-import ContactButton from "../components/ContactButton.astro"
-
-import restplatzLogo from "../assets/restplatz-logo.png"
-import rtlLogo from "../assets/rtl.png"
-import dmLogo from "../assets/dm.png"
+import Projects from "../sections/Projects.astro"
 ---
 
 <Layout title="Attila Szegedi - Senior Frontend Developer">
@@ -40,149 +34,28 @@ import dmLogo from "../assets/dm.png"
     </header>
 
     <section id="hello" class="flex items-center justify-center flex-col h-screen bg-neutral-900">
-      <h1
-        class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 via-violet-500 to-pink-500 animate-shine"
-      >
-        Attila Szegedi
-      </h1>
-      <h3 class="text-white tracking-tight font-bold">Senior Frontend Developer</h3>
+      <Hero />
     </section>
 
     <section class="py-24 px-8 max-w-6xl mx-auto text-center" id="about">
-      <h2 class="text-slate-900 mb-8 tracking-tight whitespace-nowrap">
-        <span class="font-extrabold">I'm a</span>
-        <span
-          id="aboutTyping"
-          class="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500"></span>
-      </h2>
-
-      <figure class="max-w-5xl mx-auto text-lg text-zinc-500 tracking-tight flex flex-col md:flex-row">
-        <Image src={profileImg} format="jpeg" width={300} height={300} class="w-64 h-64 rounded-full md:mr-12 mx-auto"
-        />
-        <blockquote class="space-y-8 mt-8 text-justify">
-          <p>
-            I started my career in 2009 as a web designer. Although I really enjoyed to design websites, I felt that
-            writing codes suits better for me. I started to self-educate myself to build websites based on my own
-            designs with HTML and CSS. Soon, I started to work as a frontend developer with a keen eye for details.
-          </p>
-          <p class="">
-            I'm an open-minded person with constant desire to improve myself. I feel comfortable working as a member of
-            a team and I enjoy sharing my knowledge with others.
-          </p>
-        </blockquote>
-      </figure>
+      <AboutMe />
     </section>
 
     <section class="py-24 px-8 space-y-24 max-w-6xl mx-auto" id="experiences">
-      <h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500">
-        Experiences
-      </h2>
-      <ul>
-        <ExperienceItem
-          name="Freelance"
-          duration="2019 -"
-          description="Various projects"
-          technologies={["React", "Redux", "Tailwind", "Ant Design", "SCSS"]}
-        >
-          <BulletpointActive />
-        </ExperienceItem>
-        <ExperienceItem
-          name="Virgo Systems"
-          duration="2017 - 2019"
-          description="maintain and develop cross-browser, mobile-friendly web applications and e-commerce websites, share knowledge via mentoring sessions"
-          technologies={["Vue", "Vuex", "Typescript", "Bootstrap", "Webpack", "Docker"]}
-        >
-          <Bulletpoint />
-        </ExperienceItem>
-        <ExperienceItem
-          name="USTREAM"
-          duration="2017 - 2017"
-          description="maintain and improve playback logic and Quality Of Service scaling, implement closed caption (CC) feature for live stream media and fine-tune network traffic"
-          technologies={["HTML5 Video & Audio API", "ES6", "Vue.js", "Redux", "Websocket", "Web VTT"]}
-        >
-          <Bulletpoint />
-        </ExperienceItem>
-        <ExperienceItem
-          name="Virgo Systems"
-          duration="2013 - 2017"
-          description="Various projects"
-          technologies={["jQuery", "React", "HTML5", "CSS3", "Sass", "Less"]}
-        >
-          <Bulletpoint />
-        </ExperienceItem>
-        <ExperienceItem
-          name="ORC Consulting"
-          duration="2011 - 2012"
-          description="design and implement custom ERP system UI with various modules like financial, inventory and customer relationship management"
-          technologies={["HTML", "CSS", "ExtJS 4", "PHP 5", "SOAP communication"]}
-        >
-          <Bulletpoint />
-        </ExperienceItem>
-      </ul>
+      <Experiences />
     </section>
 
-    <section class="relative py-24 mx-auto" id="projects">
-      <div
-        class="absolute inset-0 bg-grid pointer-events-none"
-        style="mask-image:radial-gradient(circle, black, transparent);-webkit-mask-image:radial-gradient(circle, black, transparent);"
-      >
-      </div>
-      <h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500 text-center">
-        Projects
-      </h2>
-
-      <div class="relative overflow-x-auto mt-12 snap-x">
-        <div class="group transition-all py-12 flex gap-8">
-          <ProjectCard
-            name="DM Hungary"
-            img={dmLogo}
-            description="Description"
-            technologies={["Vue", "Vuex", "Bootstrap", "OpenApi 3", "Scss", "Webpack", "Storybook", "Docker", "Jest"]}
-          />
-          <ProjectCard
-            name="Restplatboerse.at"
-            img={restplatzLogo}
-            description="Description"
-            technologies={["Vue", "Vuex", "Typescript", "Lerna", "Scss", "Webpack", "Storybook"]}
-          />
-          <ProjectCard
-            name="RTL Klub"
-            img={rtlLogo}
-            description="Description"
-            technologies={["Vue", "Vuex", "Typescript", "OpenApi 3", "Scss", "Webpack", "Storybook"]}
-          />
-          <ProjectCard
-            name="DM Hungary"
-            img={dmLogo}
-            description="Description"
-            technologies={["Vue", "Vuex", "Bootstrap", "OpenApi 3", "Scss", "Webpack", "Storybook", "Docker", "Jest"]}
-          />
-        </div>
-      </div>
+    <section class="relative mx-auto" id="projects">
+      <Projects />
     </section>
 
-    <section class="py-24 px-8 max-w-3xl mx-auto text-center" id="contact">
-      <h2 class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 to-violet-500">Contact</h2>
-      <h3 class="mt-6">A straightforward and trustworthy way to have more connections and extend networking.</h3>
-
-      <ul class="flex flex-col space-y-8 max-w-sm mx-auto mt-16">
-        <li>
-          <ContactButton href="https://www.linkedin.com/in/attilaszegedi" text="Reach me on LinkedIn" />
-        </li>
-        <li>
-          <ContactButton href="https://github.com/szegedia" text="Reach me on Github" />
-        </li>
-        <li>
-          <ContactButton href="mailto:mail.szegedi+szegedia.com@gmail.com" text="Drop me a line" />
-        </li>
-      </ul>
+    <section class="py-48 px-8 max-w-3xl mx-auto text-center" id="contact">
+      <Contact />
     </section>
   </main>
 </Layout>
 
 <script>
-  import TypeIt from "typeit"
-
   const threshold = 0.05
   const scrollLinks = document.querySelectorAll("[data-scroll-link]")
   const root = document.querySelector(":root") as Element
@@ -208,38 +81,4 @@ import dmLogo from "../assets/dm.png"
     },
     { threshold }
   ).observe(hello)
-
-  new TypeIt("#aboutTyping", {
-    speed: 100,
-    cursor: true,
-    loop: true,
-    loopDelay: 0
-  })
-    .type("Developer")
-    .pause(2000)
-    .delete()
-    .type("Fast learner")
-    .pause(2000)
-    .delete()
-    .type("Coffeeholic")
-    .pause(2000)
-    .delete()
-    .go()
 </script>
-
-<style>
-  @keyframes shine {
-    to {
-      background-position: 200% center;
-    }
-  }
-
-  .animate-shine {
-    background-size: 200% auto;
-    animation: shine 5s linear infinite;
-  }
-
-  .bg-grid {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-  }
-</style>

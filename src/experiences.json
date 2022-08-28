@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Freelance",
+    "duration": "2019 -",
+    "description": "maintain and develop modern cross-browser desktop/mobile web applications.",
+    "technologies": ["React", "Redux", "Vue", "Vuex", "Typescript", "Tailwindcss", "Ant Design", "Sass"]
+  },
+  {
+    "name": "Virgo Systems",
+    "duration": "2017 - 2019",
+    "description": "maintain and develop cross-browser, mobile-friendly web applications and e-commerce websites, share knowledge via mentoring sessions",
+    "technologies": ["Vue", "Vuex", "Typescript", "Bootstrap", "Webpack", "Docker"]
+  },
+  {
+    "name": "USTREAM",
+    "duration": "2017 - 2017",
+    "description": "maintain and improve playback logic and playback quality scaling service, implement closed caption (CC) feature for live stream media and fine-tune network traffic",
+    "technologies": ["Html5 Video & Audio API", "ES6", "Vue.js", "Redux", "Websocket", "Web VTT"]
+  },
+  {
+    "name": "Virgo Systems",
+    "duration": "2013 - 2017",
+    "description": "maintain and develop cross-browser, mobile-friendly web applications and e-commerce websites, share knowledge via mentoring sessions",
+    "technologies": ["jQuery", "React", "Nodejs", "Bootstrap", "Html5", "Css3", "Sass", "Less"]
+  },
+  {
+    "name": "ORC Consulting",
+    "duration": "2011 - 2012",
+    "description": "design and implement custom ERP system UI with various modules like financial, inventory and customer relationship management",
+    "technologies": ["Html5", "CSS", "ExtJS 4", "PHP 5", "SOAP communication"]
+  }
+]
