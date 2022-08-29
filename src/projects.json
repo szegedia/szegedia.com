@@ -10,10 +10,11 @@
       "Typescript",
       "Tailwindcss",
       "Ant Design",
+      "Next.js",
       "Sass",
       "Graphql",
       "OpenApi 3",
-      "Yarn workspaces"
+      "Yarn monorepo"
     ]
   },
   {

@@ -1,6 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components"
 import profileImg from "../assets/profile.jpeg"
+import favStack from "../fav-stack.json"
 ---
 
 <h2 class="text-slate-900 mb-8 tracking-tight whitespace-nowrap">
@@ -24,6 +25,20 @@ import profileImg from "../assets/profile.jpeg"
     </p>
   </blockquote>
 </figure>
+
+<div class="space-y-8 mt-12">
+  <h3 class="text-slate-900 font-bold text-center">Favorite Stack</h3>
+  <div class="flex flex-wrap gap-4 text-zinc-500 justify-center">
+    {
+      favStack.map(stack => (
+        <div class="flex w-24 flex-col items-center justify-start gap-4 rounded-md border py-4 px-6 text-center text-sm">
+          <img src={stack.image} class="h-12 w-12" />
+          {stack.name}
+        </div>
+      ))
+    }
+  </div>
+</div>
 
 <script>
   import TypeIt from "typeit"

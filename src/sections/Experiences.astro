@@ -10,17 +10,19 @@ import experiences from "../experiences.json"
   {
     experiences.map(({ name, duration, description, technologies }, index) => (
       <li class="relative ml-4 pl-12 pb-12 before:absolute before:-left-px before:top-0 before:bottom-0 before:block before:w-[2px] before:bg-zinc-400 first:before:top-[1.25ch] last:before:bottom-auto last:before:h-[1ch]">
-        <h3 class="relative inline-block text-2xl font-bold">{name}</h3>
-        <h4 class="text-zinc-400">{duration}</h4>
-        <p class="mt-6 text-sm">
-          <strong class="mr-2 text-zinc-600">Description:</strong> {description}
-        </p>
-        <p class="mt-4 flex flex-wrap items-baseline gap-2 text-sm">
-          <strong class="text-zinc-600">Techologies:</strong>
-          {technologies.map((tech: string) => (
-            <Badge>{tech}</Badge>
-          ))}
-        </p>
+        <div class="experience-item -translate-x-4 opacity-0 transition-all duration-300">
+          <h3 class="relative inline-block text-2xl font-bold">{name}</h3>
+          <h4 class="text-zinc-400">{duration}</h4>
+          <p class="mt-6 text-sm">
+            <strong class="mr-2 text-zinc-600">Description:</strong> {description}
+          </p>
+          <p class="mt-4 flex flex-wrap items-baseline gap-2 text-sm">
+            <strong class="text-zinc-600">Techologies:</strong>
+            {technologies.map((tech: string) => (
+              <Badge>{tech}</Badge>
+            ))}
+          </p>
+        </div>
 
         {index === 0 ? (
           // Active
@@ -37,3 +39,29 @@ import experiences from "../experiences.json"
     ))
   }
 </ul>
+
+<script>
+  // new IntersectionObserver(
+  //   ([e]) => {
+  //     root.classList.toggle("dark", e.intersectionRatio < threshold)
+  //   },
+  //   { threshold }
+  // ).observe(hello)
+
+  const setAnimationState = ([entry]: IntersectionObserverEntry[]) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove("opacity-0")
+      entry.target.classList.remove("-translate-x-4")
+    } else {
+      entry.target.classList.add("opacity-0")
+      entry.target.classList.add("-translate-x-4")
+    }
+  }
+
+  Array.from(document.querySelectorAll(".experience-item")).map(elem => {
+    new IntersectionObserver(setAnimationState, {
+      rootMargin: `-0% 0% -0% 0%`,
+      threshold: 0
+    }).observe(elem)
+  })
+</script>
