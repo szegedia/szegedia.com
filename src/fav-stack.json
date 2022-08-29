@@ -1,0 +1,26 @@
+[
+  {
+    "image": "/images/react.svg",
+    "name": "React"
+  },
+  {
+    "image": "/images/vue.svg",
+    "name": "Vue"
+  },
+  {
+    "image": "/images/typescript.svg",
+    "name": "Typescript"
+  },
+  {
+    "image": "/images/vite.svg",
+    "name": "Vite"
+  },
+  {
+    "image": "/images/tailwind.svg",
+    "name": "Tailwindcss"
+  },
+  {
+    "image": "/images/nextjs.svg",
+    "name": "Next.js"
+  }
+]
