@@ -16,7 +16,7 @@ import Badge from "../components/Badge.astro"
 </h2>
 
 <div class="relative flex mx-auto max-w-5xl py-8">
-  <div class="max-w-lg relative overflow-hidden top-24 shadow-2xl rounded-md">
+  <div class="max-w-lg absolute right-0 overflow-hidden top-24 shadow-2xl rounded-md">
     <div class="swiper h-72">
       <div class="swiper-wrapper">
         {
@@ -70,18 +70,18 @@ import Badge from "../components/Badge.astro"
     </div>
   </div>
 
-  <div class="editor absolute right-0 w-full max-w-xl rounded-md bg-neutral-900 text-xs shadow-lg">
+  <div class="editor w-full max-w-xl rounded-md bg-neutral-800 text-xs shadow-lg">
     <div class="relative py-2 text-center">
       <div class="absolute top-1/2 flex h-8 -translate-y-1/2 items-center space-x-1.5 px-3">
-        <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-        <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
-        <div class="h-2.5 w-2.5 rounded-full bg-slate-600"></div>
+        <div class="h-2.5 w-2.5 rounded-full bg-neutral-600"></div>
+        <div class="h-2.5 w-2.5 rounded-full bg-neutral-600"></div>
+        <div class="h-2.5 w-2.5 rounded-full bg-neutral-600"></div>
       </div>
       <h6 class="text-xs text-zinc-300">Projects — szegedia.com</h6>
     </div>
     <pre
       class="col-span-5 flex border-l border-white/10 bg-white/5 pt-2">      <div id="lines" class="mr-4 w-10 text-right text-neutral-600" />
-    <code id="code" class="language-html overflow-auto" />
+    <code id="code" class="language-html overflow-x-auto" />
     </pre>
   </div>
 </div>
@@ -92,7 +92,7 @@ import Badge from "../components/Badge.astro"
   import "prismjs/components/prism-json"
 
   let activeTimer: any
-  const lineCount = 20
+  const lineCount = 22
   const linesEl = document.querySelector("#lines") as HTMLElement
   const codeEl = document.querySelector("#code") as HTMLElement
 
