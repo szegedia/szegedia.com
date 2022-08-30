@@ -133,7 +133,7 @@ import Badge from "../components/Badge.astro"
     clearTimeout(activeTimer)
   }
 
-  const startAnimation = ({ activeIndex, slides }: Swiper) => {
+  const startAnimation = ({ activeIndex = 0, slides }: Swiper) => {
     const raw = slides[activeIndex].getAttribute("data-project")
     const tokens = Prism.tokenize(raw, Prism.languages.json, "json").map((token: any) => {
       const isRow = typeof token === "string"

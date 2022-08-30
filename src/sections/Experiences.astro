@@ -41,13 +41,6 @@ import experiences from "../experiences.json"
 </ul>
 
 <script>
-  // new IntersectionObserver(
-  //   ([e]) => {
-  //     root.classList.toggle("dark", e.intersectionRatio < threshold)
-  //   },
-  //   { threshold }
-  // ).observe(hello)
-
   const setAnimationState = ([entry]: IntersectionObserverEntry[]) => {
     if (entry.isIntersecting) {
       entry.target.classList.remove("opacity-0")
