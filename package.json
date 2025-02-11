@@ -10,22 +10,28 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.3.4",
-    "@astrojs/react": "^1.0.0",
-    "@astrojs/tailwind": "^1.0.0",
-    "@tailwindcss/forms": "^0.5.2",
-    "astro": "^1.0.6",
-    "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.5.0",
+    "@astrojs/image": "^0.3.7",
+    "@astrojs/react": "^1.2.2",
+    "@astrojs/tailwind": "^1.0.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "astro": "^1.9.2",
+    "prettier": "^2.8.8",
+    "prettier-plugin-astro": "^0.5.5",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.54.6"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.84.0"
   },
   "dependencies": {
-    "@astrojs/prism": "^1.0.1",
+    "@astrojs/prism": "^1.0.2",
     "prismjs": "^1.29.0",
-    "swiper": "^8.3.2",
-    "typeit": "^8.7.0"
+    "sharp": "^0.33.5",
+    "swiper": "^8.4.7",
+    "typeit": "^8.8.7"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
   }
 }

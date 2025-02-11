@@ -1,8 +1,20 @@
 [
   {
+    "name": "SquareLine Kft.",
+    "duration": "2024 -",
+    "description": "maintain and develop modern web-based editor application",
+    "technologies": ["React", "Typescript", "Tailwindcss"]
+  },
+  {
+    "name": "IdomSoft Zrt.",
+    "duration": "2023 - 2024",
+    "description": "maintain and develop voting-support system for Hungarian local elections",
+    "technologies": ["Angular", "React", "Typescript", "IBM Carbon Design System"]
+  },
+  {
     "name": "Grape Solutions Zrt.",
-    "duration": "2019 -",
-    "description": "maintain and develop modern cross-browser desktop/mobile web applications.",
+    "duration": "2019 - 2023",
+    "description": "maintain and develop modern cross-browser desktop/mobile web applications",
     "technologies": ["React", "Redux", "Vue", "Vuex", "Typescript", "Tailwindcss", "Ant Design", "Sass"]
   },
   {
